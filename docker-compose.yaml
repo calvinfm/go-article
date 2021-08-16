@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  api:
+    container_name: go-article
+    build: .
+    image: go-article:latest
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    networks:
+      - article_network
+    env_file:
+      - .env
+
+volumes:
+  article_volume:
+
+networks:
+  article_network:
+    name: article_network
